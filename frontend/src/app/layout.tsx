@@ -6,6 +6,7 @@ import Header from "@/components/Header/Header";
 import NavBar from "@/components/NavBar/NavBar";
 import YourLibrary from "@/components/YourLibrary/YourLibrary";
 import PlayingView from "@/components/PlayingView/PlayingView";
+import ReduxProvider from "@/components/ReduxProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,15 +21,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Header />
-        <NavBar />
-        <YourLibrary />
-        <PlayingView />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <ReduxProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <Header />
+          <NavBar />
+          <YourLibrary />
+          <PlayingView />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </ReduxProvider>
   );
 }

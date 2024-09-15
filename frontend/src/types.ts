@@ -24,12 +24,14 @@ export interface Song {
 export interface User {}
 
 export interface Playlist {
+  id: number;
   title: string;
-  owner: User;
+  owner: User | undefined;
   songs: Set<Song>;
   folder: Folder[];
 }
 
 export interface Folder {
+  id: number;
   title: string;
 }
