@@ -3,18 +3,26 @@
 import React, { useState } from "react";
 import YourLibrarySearchBar from "./YourLibrarySearchBar";
 import YourLibraryList from "./YourLibraryList";
+import { useDispatch } from "react-redux";
+import { addFolder, addPlaylist } from "@/redux/playlistSlice";
 
 function YourLibrary() {
   const [showAddPopup, setShowAddPopup] = useState(false);
   const [showMorePopup, setShowPopUp] = useState(false);
+  const dispatch = useDispatch();
 
   const handleAddPopup = () => setShowAddPopup((prev) => !prev);
 
   const handleMorePopup = () => setShowPopUp((prev) => !prev);
 
-  const handleCreatePlaylist = () => {};
+  const handleCreatePlaylist = () => {
+    dispatch(addPlaylist());
+  };
 
-  const handleCreatePlaylistFolder = () => {};
+  const handleCreatePlaylistFolder = () => {
+    const newFolder = { id: Date.now(), title: "New Folder" };
+    dispatch(addFolder());
+  };
   return (
     <div>
       <div>
