@@ -1,7 +1,11 @@
 import React from "react";
 
 function PlayingView() {
-  return <div></div>;
+  return (
+    <div>
+      <h1>Playing view</h1>
+    </div>
+  );
 }
 
 export default PlayingView;
