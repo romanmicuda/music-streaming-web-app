@@ -29,7 +29,6 @@ export default function RootLayout({
           <YourLibrary />
           <PlayingView />
           {children}
-          <Footer />
         </body>
       </html>
     </ReduxProvider>
