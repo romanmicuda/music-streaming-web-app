@@ -1,10 +1,13 @@
 export interface Artist {
+  id: number;
   name: string;
   bio?: string;
   photoUrl?: string;
+  albums: Album[];
 }
 
 export interface Album {
+  id: number;
   title: string;
   coverPhoto: string;
   releaseDate: Date;
@@ -74,6 +77,7 @@ export type Genre =
   | "Wellness";
 
 export interface Song {
+  id: number;
   title: string;
   songPhoto: string;
   artist: Artist;
@@ -92,6 +96,7 @@ export type Gender =
   | "Other";
 
 export interface User {
+  id: number;
   email: string;
   gender: Gender;
   dateOfBirth: Date;
@@ -102,7 +107,7 @@ export interface Playlist {
   id: number;
   title: string;
   owner: User | undefined;
-  songs: Set<Song>;
+  songs: Song[];
   folder: Folder[];
 }
 
