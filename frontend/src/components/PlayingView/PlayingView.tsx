@@ -1,9 +1,14 @@
 import React from "react";
+import PlayingViewSong from "./PlayingViewSong";
+import PlaybackControls from "./PlaybackControls";
+import ExtraTrackControls from "./ExtraTrackControls";
 
 function PlayingView() {
   return (
     <div>
-      <h1>Playing view</h1>
+      <PlayingViewSong />
+      <PlaybackControls />
+      <ExtraTrackControls />
     </div>
   );
 }
