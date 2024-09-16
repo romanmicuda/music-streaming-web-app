@@ -13,9 +13,15 @@ function YourLibraryList() {
         <p>Played</p>
       </div>
       <div>
-        {playlists && playlists.map((playlist) => <div>{playlist.title}</div>)}
+        {playlists &&
+          playlists.map((playlist, index) => (
+            <div key={index}>{playlist.title}</div>
+          ))}
       </div>
-      <div>{folders && folders.map((folder) => <div>{folder.title}</div>)}</div>
+      <div>
+        {folders &&
+          folders.map((folder, index) => <div key={index}>{folder.title}</div>)}
+      </div>
     </div>
   );
 }
