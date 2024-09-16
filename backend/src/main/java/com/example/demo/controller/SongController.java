@@ -34,12 +34,18 @@ public class SongController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Song> updateSong(@PathVariable Long id, @RequestBody Song song) {
-        if (!songRepository.existsById(id)) {
-            return ResponseEntity.notFound().build();
-        }
-        song.setId(id);
-        return ResponseEntity.ok().body(songRepository.save(song));
+    public Song updateSong(@PathVariable Long id, @RequestBody Song song) {
+      Song existingSong = songRepository.findById(id).orElseThrow(() -> new RuntimeException("Song not found"));
+      existingSong.setTitle(song.getTitle());
+      existingSong.setSongPhoto(song.getSongPhoto());
+      existingSong.setArtist(song.getArtist());
+      existingSong.setAlbum(song.getAlbum());
+      existingSong.setReleaseDate(song.getReleaseDate());
+      existingSong.setDuration(song.getDuration());
+      existingSong.setViews(song.getViews());
+      existingSong.setLyrics(song.getLyrics());
+      existingSong.setSongBase64(song.getSongBase64());
+      return songRepository.save(existingSong);
     }
 
     @DeleteMapping("/{id}")

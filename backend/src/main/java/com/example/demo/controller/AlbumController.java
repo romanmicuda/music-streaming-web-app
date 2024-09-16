@@ -38,8 +38,13 @@ public class AlbumController {
         if (!albumRepository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
-        album.setId(id);
-        return ResponseEntity.ok().body(albumRepository.save(album));
+        
+        Album existingAlbum = albumRepository.findById(id).orElseThrow(() -> new RuntimeException("Album not found"));
+        existingAlbum.setTitle(album.getTitle());
+        existingAlbum.setCoverPhoto(album.getCoverPhoto());
+        existingAlbum.setReleaseDate(album.getReleaseDate() != null ? album.getReleaseDate() : existingAlbum.getReleaseDate());
+
+        return ResponseEntity.ok().body(albumRepository.save(existingAlbum));
     }
 
     @DeleteMapping("/{id}")

@@ -38,8 +38,14 @@ public class ArtistController {
         if (!artistRepository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
-        artist.setId(id);
-        return ResponseEntity.ok().body(artistRepository.save(artist));
+        
+        Artist existingArtist = artistRepository.findById(id).orElseThrow(() -> new RuntimeException("Artist not found"));
+        existingArtist.setName(artist.getName());
+        existingArtist.setBio(artist.getBio());
+        existingArtist.setPhotoUrl(artist.getPhotoUrl());
+        existingArtist.setAlbums(artist.getAlbums()); // Assuming you handle the relationship correctly
+
+        return ResponseEntity.ok().body(artistRepository.save(existingArtist));
     }
 
     @DeleteMapping("/{id}")
