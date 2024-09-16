@@ -1,113 +1,68 @@
 import { Artist, Album, Song, User, Playlist, Folder } from "./types";
-
 export const artists: Artist[] = [
   {
+    id: 1,
     name: "Artist One",
     bio: "Bio for Artist One",
     photoUrl: "https://example.com/photo1.jpg",
+    albums: [],
   },
   {
+    id: 2,
     name: "Artist Two",
     bio: "Bio for Artist Two",
     photoUrl: "https://example.com/photo2.jpg",
+    albums: [],
   },
   {
+    id: 3,
     name: "Artist Three",
     bio: "Bio for Artist Three",
     photoUrl: "https://example.com/photo3.jpg",
-  },
-  {
-    name: "Artist Four",
-    bio: "Bio for Artist Four",
-    photoUrl: "https://example.com/photo4.jpg",
-  },
-  {
-    name: "Artist Five",
-    bio: "Bio for Artist Five",
-    photoUrl: "https://example.com/photo5.jpg",
-  },
-  {
-    name: "Artist Six",
-    bio: "Bio for Artist Six",
-    photoUrl: "https://example.com/photo6.jpg",
-  },
-  {
-    name: "Artist Seven",
-    bio: "Bio for Artist Seven",
-    photoUrl: "https://example.com/photo7.jpg",
-  },
-  {
-    name: "Artist Eight",
-    bio: "Bio for Artist Eight",
-    photoUrl: "https://example.com/photo8.jpg",
-  },
-  {
-    name: "Artist Nine",
-    bio: "Bio for Artist Nine",
-    photoUrl: "https://example.com/photo9.jpg",
-  },
-  {
-    name: "Artist Ten",
-    bio: "Bio for Artist Ten",
-    photoUrl: "https://example.com/photo10.jpg",
+    albums: [],
   },
 ];
-
 export const albums: Album[] = [
   {
+    id: 1,
     title: "Album One",
     coverPhoto: "https://example.com/cover1.jpg",
     releaseDate: new Date("2024-01-01"),
   },
   {
+    id: 2,
     title: "Album Two",
     coverPhoto: "https://example.com/cover2.jpg",
     releaseDate: new Date("2024-02-01"),
   },
   {
+    id: 3,
     title: "Album Three",
     coverPhoto: "https://example.com/cover3.jpg",
     releaseDate: new Date("2024-03-01"),
   },
+];
+
+const users: User[] = [
   {
-    title: "Album Four",
-    coverPhoto: "https://example.com/cover4.jpg",
-    releaseDate: new Date("2024-04-01"),
+    id: 1,
+    email: "alex.smith@example.com",
+    gender: "Male",
+    dateOfBirth: new Date("1990-05-21"),
+    Country: "United States",
   },
   {
-    title: "Album Five",
-    coverPhoto: "https://example.com/cover5.jpg",
-    releaseDate: new Date("2024-05-01"),
-  },
-  {
-    title: "Album Six",
-    coverPhoto: "https://example.com/cover6.jpg",
-    releaseDate: new Date("2024-06-01"),
-  },
-  {
-    title: "Album Seven",
-    coverPhoto: "https://example.com/cover7.jpg",
-    releaseDate: new Date("2024-07-01"),
-  },
-  {
-    title: "Album Eight",
-    coverPhoto: "https://example.com/cover8.jpg",
-    releaseDate: new Date("2024-08-01"),
-  },
-  {
-    title: "Album Nine",
-    coverPhoto: "https://example.com/cover9.jpg",
-    releaseDate: new Date("2024-09-01"),
-  },
-  {
-    title: "Album Ten",
-    coverPhoto: "https://example.com/cover10.jpg",
-    releaseDate: new Date("2024-10-01"),
+    id: 2,
+    email: "julia.lee@example.com",
+    gender: "Female",
+    dateOfBirth: new Date("1995-09-14"),
+    Country: "Canada",
   },
 ];
 
 export const songs: Song[] = [
   {
+    id: 1,
     title: "Song One",
     songPhoto: "https://example.com/song1.jpg",
     artist: artists[0],
@@ -116,8 +71,10 @@ export const songs: Song[] = [
     duration: 210,
     views: 1000,
     lyrics: "Lyrics for Song One",
+    songBase64: "data:audio/mp3;base64,<base64data1>",
   },
   {
+    id: 2,
     title: "Song Two",
     songPhoto: "https://example.com/song2.jpg",
     artist: artists[1],
@@ -126,8 +83,10 @@ export const songs: Song[] = [
     duration: 180,
     views: 2000,
     lyrics: "Lyrics for Song Two",
+    songBase64: "data:audio/mp3;base64,<base64data2>",
   },
   {
+    id: 3,
     title: "Song Three",
     songPhoto: "https://example.com/song3.jpg",
     artist: artists[2],
@@ -136,8 +95,10 @@ export const songs: Song[] = [
     duration: 240,
     views: 3000,
     lyrics: "Lyrics for Song Three",
+    songBase64: "data:audio/mp3;base64,<base64data3>",
   },
   {
+    id: 4,
     title: "Song Four",
     songPhoto: "https://example.com/song4.jpg",
     artist: artists[3],
@@ -146,8 +107,10 @@ export const songs: Song[] = [
     duration: 210,
     views: 1500,
     lyrics: "Lyrics for Song Four",
+    songBase64: "data:audio/mp3;base64,<base64data4>",
   },
   {
+    id: 5,
     title: "Song Five",
     songPhoto: "https://example.com/song5.jpg",
     artist: artists[4],
@@ -156,8 +119,10 @@ export const songs: Song[] = [
     duration: 190,
     views: 2500,
     lyrics: "Lyrics for Song Five",
+    songBase64: "data:audio/mp3;base64,<base64data5>",
   },
   {
+    id: 6,
     title: "Song Six",
     songPhoto: "https://example.com/song6.jpg",
     artist: artists[5],
@@ -166,8 +131,10 @@ export const songs: Song[] = [
     duration: 230,
     views: 3500,
     lyrics: "Lyrics for Song Six",
+    songBase64: "data:audio/mp3;base64,<base64data6>",
   },
   {
+    id: 7,
     title: "Song Seven",
     songPhoto: "https://example.com/song7.jpg",
     artist: artists[6],
@@ -176,8 +143,10 @@ export const songs: Song[] = [
     duration: 200,
     views: 4500,
     lyrics: "Lyrics for Song Seven",
+    songBase64: "data:audio/mp3;base64,<base64data7>",
   },
   {
+    id: 8,
     title: "Song Eight",
     songPhoto: "https://example.com/song8.jpg",
     artist: artists[7],
@@ -186,8 +155,10 @@ export const songs: Song[] = [
     duration: 220,
     views: 5500,
     lyrics: "Lyrics for Song Eight",
+    songBase64: "data:audio/mp3;base64,<base64data8>",
   },
   {
+    id: 9,
     title: "Song Nine",
     songPhoto: "https://example.com/song9.jpg",
     artist: artists[8],
@@ -196,8 +167,10 @@ export const songs: Song[] = [
     duration: 250,
     views: 6500,
     lyrics: "Lyrics for Song Nine",
+    songBase64: "data:audio/mp3;base64,<base64data9>",
   },
   {
+    id: 10,
     title: "Song Ten",
     songPhoto: "https://example.com/song10.jpg",
     artist: artists[9],
@@ -206,69 +179,7 @@ export const songs: Song[] = [
     duration: 210,
     views: 7500,
     lyrics: "Lyrics for Song Ten",
-  },
-];
-
-const users: User[] = [
-  {
-    email: "alex.smith@example.com",
-    gender: "Male",
-    dateOfBirth: new Date("1990-05-21"),
-    Country: "United States",
-  },
-  {
-    email: "julia.lee@example.com",
-    gender: "Female",
-    dateOfBirth: new Date("1995-09-14"),
-    Country: "Canada",
-  },
-  {
-    email: "morgan.taylor@example.com",
-    gender: "Non-binary",
-    dateOfBirth: new Date("1988-02-19"),
-    Country: "Australia",
-  },
-  {
-    email: "sam.brown@example.com",
-    gender: "Male",
-    dateOfBirth: new Date("1993-07-08"),
-    Country: "United Kingdom",
-  },
-  {
-    email: "emily.davis@example.com",
-    gender: "Female",
-    dateOfBirth: new Date("2000-11-03"),
-    Country: "Germany",
-  },
-  {
-    email: "chris.wilson@example.com",
-    gender: "Other",
-    dateOfBirth: new Date("1985-12-27"),
-    Country: "New Zealand",
-  },
-  {
-    email: "parker.jones@example.com",
-    gender: "Prefer not to say",
-    dateOfBirth: new Date("1978-03-16"),
-    Country: "France",
-  },
-  {
-    email: "casey.morgan@example.com",
-    gender: "Non-binary",
-    dateOfBirth: new Date("1999-08-10"),
-    Country: "Sweden",
-  },
-  {
-    email: "olivia.jackson@example.com",
-    gender: "Female",
-    dateOfBirth: new Date("1994-04-22"),
-    Country: "South Africa",
-  },
-  {
-    email: "michael.clark@example.com",
-    gender: "Male",
-    dateOfBirth: new Date("1983-06-09"),
-    Country: "Japan",
+    songBase64: "data:audio/mp3;base64,<base64data10>",
   },
 ];
 
@@ -277,71 +188,15 @@ export const playlists: Playlist[] = [
     id: 1,
     title: "Playlist One",
     owner: users[0],
-    songs: new Set([songs[0], songs[1]]),
+    songs: [songs[0], songs[1]],
     folder: [{ id: 1, title: "Folder One" }],
   },
   {
     id: 2,
     title: "Playlist Two",
     owner: users[1],
-    songs: new Set([songs[2], songs[3]]),
+    songs: [songs[2], songs[3]],
     folder: [{ id: 2, title: "Folder Two" }],
-  },
-  {
-    id: 3,
-    title: "Playlist Three",
-    owner: users[2],
-    songs: new Set([songs[4], songs[5]]),
-    folder: [{ id: 3, title: "Folder Three" }],
-  },
-  {
-    id: 4,
-    title: "Playlist Four",
-    owner: users[3],
-    songs: new Set([songs[6], songs[7]]),
-    folder: [{ id: 4, title: "Folder Four" }],
-  },
-  {
-    id: 5,
-    title: "Playlist Five",
-    owner: users[4],
-    songs: new Set([songs[8], songs[9]]),
-    folder: [{ id: 5, title: "Folder Five" }],
-  },
-  {
-    id: 6,
-    title: "Playlist Six",
-    owner: users[5],
-    songs: new Set([songs[0], songs[3]]),
-    folder: [{ id: 6, title: "Folder Six" }],
-  },
-  {
-    id: 7,
-    title: "Playlist Seven",
-    owner: users[6],
-    songs: new Set([songs[1], songs[4]]),
-    folder: [{ id: 7, title: "Folder Seven" }],
-  },
-  {
-    id: 8,
-    title: "Playlist Eight",
-    owner: users[7],
-    songs: new Set([songs[2], songs[5]]),
-    folder: [{ id: 8, title: "Folder Eight" }],
-  },
-  {
-    id: 9,
-    title: "Playlist Nine",
-    owner: users[8],
-    songs: new Set([songs[6], songs[9]]),
-    folder: [{ id: 9, title: "Folder Nine" }],
-  },
-  {
-    id: 10,
-    title: "Playlist Ten",
-    owner: users[9],
-    songs: new Set([songs[7], songs[8]]),
-    folder: [{ id: 10, title: "Folder Ten" }],
   },
 ];
 
@@ -349,13 +204,6 @@ export const folders: Folder[] = [
   { id: 1, title: "Folder One" },
   { id: 2, title: "Folder Two" },
   { id: 3, title: "Folder Three" },
-  { id: 4, title: "Folder Four" },
-  { id: 5, title: "Folder Five" },
-  { id: 6, title: "Folder Six" },
-  { id: 7, title: "Folder Seven" },
-  { id: 8, title: "Folder Eight" },
-  { id: 9, title: "Folder Nine" },
-  { id: 10, title: "Folder Ten" },
 ];
 
 export const genres: string[] = [
