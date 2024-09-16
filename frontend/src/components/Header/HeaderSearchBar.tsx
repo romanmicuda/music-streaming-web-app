@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState } from "react";
 
 function HeaderSearchBar() {
@@ -12,7 +13,9 @@ function HeaderSearchBar() {
     <div>
       <span className="material-symbols-outlined">search</span>
       <input type="text" value={searchTerm} onChange={handleSearchTerm} />
-      <span className="material-symbols-outlined">travel_explore</span>
+      <Link href="/browse">
+        <span className="material-symbols-outlined">travel_explore</span>
+      </Link>
     </div>
   );
 }

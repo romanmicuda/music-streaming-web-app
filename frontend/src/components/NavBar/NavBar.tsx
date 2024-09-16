@@ -4,7 +4,7 @@ function NavBar() {
   return (
     <div>
       <nav>
-        <ul>
+        <ul className="flex space-x-3">
           <li>All</li>
           <li>Music</li>
           <li>Podcast</li>
