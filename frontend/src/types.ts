@@ -21,7 +21,19 @@ export interface Song {
   lyrics: string;
 }
 
-export interface User {}
+export type Gender =
+  | "Non-binary"
+  | "Prefer not to say"
+  | "Male"
+  | "Female"
+  | "Other";
+
+export interface User {
+  email: string;
+  gender: Gender;
+  dateOfBirth: Date;
+  Country: string;
+}
 
 export interface Playlist {
   id: number;
