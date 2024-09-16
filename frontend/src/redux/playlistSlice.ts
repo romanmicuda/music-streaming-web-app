@@ -1,3 +1,4 @@
+import Song from "@/app/song/[id]/page";
 import { Folder, Playlist } from "@/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
@@ -20,7 +21,7 @@ const playlistSlice = createSlice({
         id: Date.now(),
         title: `New Playlist #${state.playlists.length}`,
         owner: undefined,
-        songs: new Set(),
+        songs: [],
         folder: [],
       });
     },
