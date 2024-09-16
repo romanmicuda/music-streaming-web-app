@@ -86,6 +86,7 @@ export interface Song {
   duration: number;
   views: number;
   lyrics: string;
+  songBase64: string;
 }
 
 export type Gender =
