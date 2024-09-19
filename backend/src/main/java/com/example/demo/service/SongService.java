@@ -9,27 +9,23 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SongService {
-
-    private final SongRepository songRepository;
-
+public class SongService implements ISongService {
     @Autowired
-    public SongService(SongRepository songRepository) {
-        this.songRepository = songRepository;
-    }
+    private SongRepository songRepository;
 
+    @Override
     public List<Song> getAllSongs() {
         return songRepository.findAll();
     }
-
+    @Override
     public Optional<Song> getSongById(Long id) {
         return songRepository.findById(id);
     }
-
+    @Override
     public Song createSong(Song song) {
         return songRepository.save(song);
     }
-
+    @Override
     public Song updateSong(Long id, Song song) {
         if (!songRepository.existsById(id)) {
             throw new RuntimeException("Song not found");
@@ -46,11 +42,11 @@ public class SongService {
         existingSong.setSongBase64(song.getSongBase64());
         return songRepository.save(existingSong);
     }
-
+    @Override
     public Song saveSong(Song song) {
         return songRepository.save(song);
     }
-
+    @Override
     public void deleteSong(Long id) {
         songRepository.deleteById(id);
     }

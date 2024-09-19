@@ -12,27 +12,27 @@ import java.util.Optional;
 import com.example.demo.repository.AlbumRepository;
 
 @Service
-public class AlbumService {
-
-    private final AlbumRepository albumRepository;
+public class AlbumService implements IAlbumService {
 
     @Autowired
-    public AlbumService(AlbumRepository albumRepository) {
-        this.albumRepository = albumRepository;
-    }
+    private AlbumRepository albumRepository;
 
+    @Override
     public List<Album> getAllAlbums() {
         return albumRepository.findAll();
     }
 
+    @Override
     public Optional<Album> getAlbumById(Long id) {
         return albumRepository.findById(id);
     }
 
+    @Override
     public Album saveAlbum(Album album) {
         return albumRepository.save(album);
     }
 
+    @Override
     public void deleteAlbum(Long id) {
         albumRepository.deleteById(id);
     }

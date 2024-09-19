@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.model.Song;
 import com.example.demo.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,23 +17,23 @@ public class SongController {
     @Autowired
     private SongService songService;
 
-    @GetMapping
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Song> getAllSongs() {
         return songService.getAllSongs();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(value ="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Song> getSongById(@PathVariable Long id) {
         Optional<Song> song = songService.getSongById(id);
         return song.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Song createSong(@RequestBody Song song) {
         return songService.createSong(song);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Song> updateSong(@PathVariable Long id, @RequestBody Song song) {
         try {
             Song updatedSong = songService.updateSong(id, song);

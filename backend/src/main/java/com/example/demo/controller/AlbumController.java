@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.model.Album;
 import com.example.demo.service.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,31 +14,27 @@ import java.util.Optional;
 @RequestMapping("/albums")
 public class AlbumController {
 
-    private final AlbumService albumService;
-
     @Autowired
-    public AlbumController(AlbumService albumService) {
-        this.albumService = albumService;
-    }
+    private AlbumService albumService;
 
-    @GetMapping
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Album> getAllAlbums() {
         return albumService.getAllAlbums();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(value ="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Album> getAlbumById(@PathVariable Long id) {
         return albumService.getAlbumById(id)
                 .map(album -> ResponseEntity.ok().body(album))
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Album createAlbum(@RequestBody Album album) {
         return albumService.saveAlbum(album);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Album> updateAlbum(@PathVariable Long id, @RequestBody Album album) {
         Optional<Album> existingAlbumOpt = albumService.getAlbumById(id);
         if (!existingAlbumOpt.isPresent()) {
