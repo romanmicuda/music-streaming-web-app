@@ -18,4 +18,6 @@ public interface ISongService {
       public Song saveSong(Song song);
 
       public void deleteSong(Long id);
+
+      public List<Song> getAllSongsByGenre(String genre);
 }

@@ -17,6 +17,12 @@ public class SongService implements ISongService {
     public List<Song> getAllSongs() {
         return songRepository.findAll();
     }
+
+    @Override
+    public List<Song> getAllSongsByGenre(String genre) {
+        return songRepository.findByGenre(genre);
+    }
+
     @Override
     public Optional<Song> getSongById(Long id) {
         return songRepository.findById(id);
@@ -50,4 +56,6 @@ public class SongService implements ISongService {
     public void deleteSong(Long id) {
         songRepository.deleteById(id);
     }
+
+
 }

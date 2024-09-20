@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
 
 @RestController
 @RequestMapping("/songs")
@@ -20,6 +24,24 @@ public class SongController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Song> getAllSongs() {
         return songService.getAllSongs();
+    }
+
+
+    @GetMapping(value = "/genre/{genre}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getMethodName(@RequestParam String param) {
+        return new String();
+    }
+    
+
+
+    @GetMapping(value = "/genre/{genre}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Song>> getSongsByGenre(@PathVariable String genre) {
+    List<Song> songs = songService.getAllSongsByGenre(genre);
+    if (!songs.isEmpty()) {
+        return ResponseEntity.ok(songs);
+    } else {
+        return ResponseEntity.notFound().build();
+    }
     }
 
     @GetMapping(value ="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -52,4 +74,7 @@ public class SongController {
             return ResponseEntity.notFound().build();
         }
     }
+
+
+    
 }

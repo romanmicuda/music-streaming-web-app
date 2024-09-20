@@ -27,7 +27,8 @@ public class Song {
     private int duration;
     private int views;
     private String lyrics;
-    private String songBase64; 
+    private String songBase64;
+    private Genre genre; 
 
     @ManyToOne
     @JoinColumn(name = "artist_id")
