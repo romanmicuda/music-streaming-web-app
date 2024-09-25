@@ -1,0 +1,11 @@
+id,bio,name,photo_url
+1,This is the bio for Artist 1.,Artist Name 1,http://example.com/photo1.jpg
+2,This is the bio for Artist 2.,Artist Name 2,http://example.com/photo2.jpg
+3,This is the bio for Artist 3.,Artist Name 3,http://example.com/photo3.jpg
+4,This is the bio for Artist 4.,Artist Name 4,http://example.com/photo4.jpg
+5,This is the bio for Artist 5.,Artist Name 5,http://example.com/photo5.jpg
+6,This is the bio for Artist 6.,Artist Name 6,http://example.com/photo6.jpg
+7,This is the bio for Artist 7.,Artist Name 7,http://example.com/photo7.jpg
+8,This is the bio for Artist 8.,Artist Name 8,http://example.com/photo8.jpg
+9,This is the bio for Artist 9.,Artist Name 9,http://example.com/photo9.jpg
+10,This is the bio for Artist 10.,Artist Name 10,http://example.com/photo10.jpg
