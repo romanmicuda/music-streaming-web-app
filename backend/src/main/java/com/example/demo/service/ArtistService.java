@@ -30,7 +30,7 @@ public class ArtistService implements IArtistService {
     }
 
     @Override
-    public void deleteArtist(Long id) {
+    public void deleteArtist(long id) {
         artistRepository.deleteById(id);
     }
 }

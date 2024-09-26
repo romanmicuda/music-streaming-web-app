@@ -4,3 +4,4 @@ fronted/.gitignore
 .env.local
 data/
 .env
+docker-entrypoint-initdb.d/generate.py

@@ -9,9 +9,9 @@ public interface IAlbumService {
 
     public List<Album> getAllAlbums();
 
-    public Optional<Album> getAlbumById(Long id);
+    public Optional<Album> getAlbumById(long id);
 
     public Album saveAlbum(Album album);
 
-    public void deleteAlbum(Long id);
+    public void deleteAlbum(long id);
 }

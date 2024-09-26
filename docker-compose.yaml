@@ -14,6 +14,7 @@ services:
       - db
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./backend/src/main/resources/songs:/app/src/main/resources/songs
 
   frontend:
     build:

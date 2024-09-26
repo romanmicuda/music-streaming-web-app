@@ -9,5 +9,5 @@ public interface IArtistService {
      public List<Artist> getAllArtists();
      public Optional<Artist> getArtistById(Long id);
      public Artist saveArtist(Artist artist);
-     public void deleteArtist(Long id);
+     public void deleteArtist(long id);
 }

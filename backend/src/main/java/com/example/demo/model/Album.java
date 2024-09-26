@@ -2,6 +2,8 @@ package com.example.demo.model;
 
 import java.util.Date;
 
+import com.example.demo.model.request.AlbumRequest;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,7 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Album {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy =  GenerationType.AUTO)
     private Long id;
     private String title;
     private String coverPhoto;
@@ -27,4 +29,11 @@ public class Album {
     @ManyToOne
     @JoinColumn(name = "artist_id")
     private Artist artist;
+
+    public Album(AlbumRequest albumRequest, Artist artist) {
+        this.title = albumRequest.getTitle();
+        this.coverPhoto = albumRequest.getCoverPhoto();
+        this.releaseDate = albumRequest.getReleaseDate();
+        this.artist = artist;
+    }
 }

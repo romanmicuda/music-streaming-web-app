@@ -19,3 +19,11 @@ PGPASSWORD=$POSTGRES_PASSWORD psql -h db -U "$POSTGRES_USER" -d "$POSTGRES_DB" -
 PGPASSWORD=$POSTGRES_PASSWORD psql -h db -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "\COPY song(duration, genre, views, album_id, artist_id, id, release_date, lyrics, source_name, song_photo, title) FROM '/docker-entrypoint-initdb.d/songs.csv' DELIMITER ',' CSV HEADER;"
 
 echo "Data import complete"
+
+# Set the sequences for the tables based on the max id
+echo "Setting sequences for tables..."
+PGPASSWORD=$POSTGRES_PASSWORD psql -h db -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT setval('artist_seq', (SELECT MAX(id) FROM artist));"
+PGPASSWORD=$POSTGRES_PASSWORD psql -h db -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT setval('album_seq', (SELECT MAX(id) FROM album));"
+PGPASSWORD=$POSTGRES_PASSWORD psql -h db -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT setval('song_seq', (SELECT MAX(id) FROM song));"
+
+echo "Sequences set complete."
