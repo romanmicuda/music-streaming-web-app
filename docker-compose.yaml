@@ -15,12 +15,16 @@ services:
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       - ./backend/src/main/resources/songs:/app/src/main/resources/songs
+    networks:
+      - app-network
 
   frontend:
     build:
       context: ./frontend
     ports:
       - "3000:3000"
+    networks:
+      - app-network
 
   db:
     image: postgres:15
@@ -33,6 +37,8 @@ services:
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       - ./data:/docker-entrypoint-initdb.d
+    networks:
+      - app-network
 
   pgadmin:
     image: dpage/pgadmin4
@@ -43,6 +49,8 @@ services:
       - "5050:80"
     depends_on:
       - db
+    networks:
+      - app-network
 
   data-load:
     build: .
@@ -55,6 +63,12 @@ services:
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     entrypoint: /docker-entrypoint-initdb.d/data-load.sh
+    networks:
+      - app-network
 
 volumes:
   postgres-data:
+
+networks:
+  app-network:
+    driver: bridge
