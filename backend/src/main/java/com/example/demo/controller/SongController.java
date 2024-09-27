@@ -5,6 +5,7 @@ import com.example.demo.model.Album;
 import com.example.demo.model.Artist;
 import com.example.demo.model.Song;
 import com.example.demo.model.request.SongRequest;
+import com.example.demo.model.response.ArtistResponse;
 import com.example.demo.model.response.SongResponse;
 import com.example.demo.service.IAlbumService;
 import com.example.demo.service.IArtistService;
@@ -55,6 +56,17 @@ public class SongController {
         System.out.println("Controller "+id);
         return ResponseEntity.ok().contentType(MediaType.parseMediaType("audio/mpeg")).body(songResource);
     }
+
+    @GetMapping(value = "/title/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<SongResponse>> getSongsByTitle(@PathVariable String name) {
+        List<SongResponse> songResponses = songService.getSongByTitle(name)
+                                                       .stream()
+                                                       .map(SongResponse::new)
+                                                       .collect(Collectors.toList());
+        return ResponseEntity.ok(songResponses);
+    }
+    
+
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<SongResponse> createSong(@RequestPart("song") SongRequest songRequest, @RequestPart("songFile") MultipartFile uploadedSong) {

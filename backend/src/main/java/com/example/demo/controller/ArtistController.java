@@ -45,8 +45,8 @@ public class ArtistController {
     }
 
     @GetMapping(value = "/name/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<ArtistResponse>> getAllArtists(@PathVariable String name) {
-        List<ArtistResponse> artistsResponses = artistService.getArtistByName(name).stream().map(ArtistResponse::new).collect(Collectors.toList());
+    public ResponseEntity<List<ArtistResponse>> getArtistsByName(@PathVariable String name) {
+        List<ArtistResponse> artistsResponses = artistService.getAritsByTitle(name).stream().map(ArtistResponse::new).collect(Collectors.toList());
         return ResponseEntity.ok(artistsResponses);
     }
 

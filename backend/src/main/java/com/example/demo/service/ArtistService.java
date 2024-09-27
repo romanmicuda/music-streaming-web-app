@@ -36,7 +36,7 @@ public class ArtistService implements IArtistService {
 
 
     @Override
-    public List<Artist> getArtistByName(String name) {
+    public List<Artist> getAritsByTitle(String name) {
         return artistRepository.findByNameContainingIgnoreCase(name);
     }
 }

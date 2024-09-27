@@ -43,6 +43,11 @@ public class SongService implements ISongService {
 
 
     @Override
+    public List<Song> getSongByTitle(String title) {
+        return songRepository.findByTitleContainingIgnoreCase(title);
+    }
+    
+    @Override
     public Song updateSong(Long id, SongRequest songRequest, Artist artist, Album album ) throws NotFoundException {
         if (!songRepository.existsById(id)) {
             throw new NotFoundException();

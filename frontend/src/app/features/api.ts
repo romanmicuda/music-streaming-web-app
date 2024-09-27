@@ -60,3 +60,23 @@ export const fetchArtistsBySearchTerm = async (searchTerm: string) => {
     return null;
   }
 };
+
+export const fetchSongsBySearchTerm = async (searchTerm: string) => {
+  if (!searchTerm) {
+    console.error(`No search term`);
+    return null;
+  }
+
+  try {
+    const response = await axios.get(
+      `${
+        process.env.NEXT_PUBLIC_APP_MUSIC_URL
+      }/songs/title/${decodeURIComponent(searchTerm)}`
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error(`Error occured: ${error}`);
+    return null;
+  }
+};

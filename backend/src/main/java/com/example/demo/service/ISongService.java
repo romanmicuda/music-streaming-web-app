@@ -25,6 +25,7 @@ public interface ISongService {
       public void deleteSong(Long id);
 
       public List<Song> getAllSongsByGenre(String genre);
+      public List<Song> getSongByTitle(String title);
 
       
 }
