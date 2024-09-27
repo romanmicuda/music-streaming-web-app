@@ -14,4 +14,6 @@ public interface IAlbumService {
     public Album saveAlbum(Album album);
 
     public void deleteAlbum(long id);
+
+    public List<Album> getAlbumByTitle(String title);
 }

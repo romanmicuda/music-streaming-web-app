@@ -36,4 +36,11 @@ public class AlbumService implements IAlbumService {
     public void deleteAlbum(long id) {
         albumRepository.deleteById(id);
     }
+
+    @Override
+    public List<Album> getAlbumByTitle(String title) {
+        return albumRepository.findByTitleContainingIgnoreCase(title);
+    }
+
+    
 }

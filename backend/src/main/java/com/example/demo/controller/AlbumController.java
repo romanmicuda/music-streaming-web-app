@@ -7,6 +7,7 @@ import com.example.demo.model.Artist;
 import com.example.demo.model.Song;
 import com.example.demo.model.request.AlbumRequest;
 import com.example.demo.model.response.AlbumResponse;
+import com.example.demo.model.response.ArtistResponse;
 import com.example.demo.service.AlbumService;
 import com.example.demo.service.ArtistService;
 import com.example.demo.service.IAlbumService;
@@ -47,6 +48,16 @@ public class AlbumController {
                 .map(album -> ResponseEntity.ok().body(new AlbumResponse(album)))
                 .orElse(ResponseEntity.notFound().build());
     }
+
+
+    @GetMapping(value = "/title/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<AlbumResponse>> getAlbumByTitle(@PathVariable String name) {
+        List<AlbumResponse> albumResponses = albumService.getAlbumByTitle(name).stream().map(AlbumResponse::new).collect(Collectors.toList());
+        return ResponseEntity.ok(albumResponses);
+    }
+
+
+
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AlbumResponse> createAlbum(@RequestBody AlbumRequest albumRequest) throws NotFoundException {

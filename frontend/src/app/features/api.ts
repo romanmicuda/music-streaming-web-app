@@ -80,3 +80,23 @@ export const fetchSongsBySearchTerm = async (searchTerm: string) => {
     return null;
   }
 };
+
+export const fetchAlbumsBySearchTerm = async (searchTerm: string) => {
+  if (!searchTerm) {
+    console.error(`No search term`);
+    return null;
+  }
+
+  try {
+    const response = await axios.get(
+      `${
+        process.env.NEXT_PUBLIC_APP_MUSIC_URL
+      }/albums/title/${decodeURIComponent(searchTerm)}`
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error(`Error occured: ${error}`);
+    return null;
+  }
+};
