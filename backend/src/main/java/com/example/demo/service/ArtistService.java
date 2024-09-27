@@ -33,4 +33,10 @@ public class ArtistService implements IArtistService {
     public void deleteArtist(long id) {
         artistRepository.deleteById(id);
     }
+
+
+    @Override
+    public List<Artist> getArtistByName(String name) {
+        return artistRepository.findByNameContainingIgnoreCase(name);
+    }
 }

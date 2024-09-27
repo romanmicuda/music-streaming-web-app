@@ -22,6 +22,12 @@ function HeaderSearchBar() {
     handleSearchTerm;
   }, [searchTerm]);
 
+  const handleSearchRedirect = () => {
+    if (searchTerm.length == 0) {
+      router.push("/browse");
+    }
+  };
+
   return (
     <div>
       <span className="material-symbols-outlined">search</span>
@@ -29,7 +35,7 @@ function HeaderSearchBar() {
         type="text"
         value={searchTerm}
         onChange={handleSearchTerm}
-        onClick={() => router.push("/browse")}
+        onClick={handleSearchRedirect}
       />
 
       {searchTerm ? (
