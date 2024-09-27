@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
-import NavBar from "@/components/NavBar/NavBar";
 import YourLibrary from "@/components/YourLibrary/YourLibrary";
 import PlayingView from "@/components/PlayingView/PlayingView";
 import ReduxProvider from "@/components/ReduxProvider";
