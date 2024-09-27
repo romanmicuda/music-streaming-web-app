@@ -20,3 +20,23 @@ export const fetchSongsByGenre = async (genre: string) => {
     return [];
   }
 };
+
+export const fetchSongById = async (id: string) => {
+  if (!Number(id)) {
+    console.error(`Invalid id provided: ${id}`);
+    return null;
+  }
+
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_APP_MUSIC_URL}/songs/${id}`,
+      {
+        responseType: "blob",
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(`Error occurred: ${error}`);
+    return null;
+  }
+};

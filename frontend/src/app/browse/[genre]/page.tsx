@@ -2,12 +2,19 @@
 
 import { fetchSongsByGenre } from "@/app/features/api";
 import { Song } from "@/types";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 export default function Page({ params }: { params: { genre: string } }) {
-  const [songs, setSongs] = useState<Song[]>();
+  const [songs, setSongs] = useState<Song[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (songs.length > 0) {
+      localStorage.setItem(`songs`, JSON.stringify(songs));
+    }
+  }, [songs, params.genre]);
 
   useEffect(() => {
     const getSongs = async () => {
@@ -39,7 +46,9 @@ export default function Page({ params }: { params: { genre: string } }) {
       <h1>Genre: {decodeURIComponent(params.genre)}</h1>
       <ul>
         {songs?.map((song) => (
-          <li key={song.id}>{song.title}</li>
+          <li key={song.id}>
+            <Link href={`/song/${song.id}`}>{song.title}</Link>
+          </li>
         ))}
       </ul>
     </div>
