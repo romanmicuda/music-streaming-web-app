@@ -9,9 +9,6 @@ function Header() {
         <span className="material-symbols-outlined">home</span>
       </Link>
       <HeaderSearchBar />
-      <p>Explore Premiem</p>
-      <p>Install App</p>
-      <span className="material-symbols-outlined">notifications</span>
     </div>
   );
 }
