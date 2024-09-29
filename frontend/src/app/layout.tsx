@@ -23,21 +23,25 @@ export default function RootLayout({
   return (
     <ReduxProvider>
       <html lang="en">
-        <body className={`${inter.className} h-screen flex flex-col`}>
-          <header className="bg-gray-200 flex-shrink-0">
+        <body
+          className={`${inter.className} h-screen flex flex-col bg-black text-white`}
+        >
+          <header className=" flex-shrink-0">
             <Header />
           </header>
 
           <div className="flex flex-1 overflow-hidden relative">
-            <aside className="bg-red-800 w-64 flex-shrink-0 z-10">
+            <aside className="bg-mygray rounded-lg w-64 flex-shrink-0 z-10 m-3">
               <YourLibrary />
             </aside>
 
             <main className="flex flex-col flex-1">
-              <div className="flex-1 overflow-auto">{children}</div>
+              <div className="flex-1 overflow-auto bg-mygray rounded-lg  m-3">
+                {children}
+              </div>
             </main>
 
-            <footer className="absolute bottom-0 left-0 w-full bg-green-700 z-20">
+            <footer className="absolute bottom-0 bg-black left-0 w-full z-20">
               <PlayingView />
             </footer>
           </div>

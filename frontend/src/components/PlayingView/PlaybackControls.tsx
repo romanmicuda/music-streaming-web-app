@@ -20,7 +20,7 @@ function PlaybackControls() {
   };
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center space-x-2">
       <span className="material-symbols-outlined">shuffle</span>
 
       <button onClick={handlePrevious} className="control-button">

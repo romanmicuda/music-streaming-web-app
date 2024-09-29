@@ -2,7 +2,7 @@ import React from "react";
 
 function ExtraTrackControls() {
   return (
-    <div>
+    <div className="space-x-2">
       <span className="material-symbols-outlined">smart_display</span>
       <span className="material-symbols-outlined">lyrics</span>
       <span className="material-symbols-outlined">queue_music</span>

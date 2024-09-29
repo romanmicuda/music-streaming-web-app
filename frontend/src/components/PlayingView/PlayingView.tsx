@@ -5,7 +5,7 @@ import ExtraTrackControls from "./ExtraTrackControls";
 
 function PlayingView() {
   return (
-    <div>
+    <div className="flex justify-between m-5">
       <PlayingViewSong />
       <PlaybackControls />
       <ExtraTrackControls />

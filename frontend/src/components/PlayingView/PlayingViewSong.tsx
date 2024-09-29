@@ -2,7 +2,7 @@ import React from "react";
 
 function PlayingViewSong() {
   return (
-    <div className="flex">
+    <div className="flex space-x-2">
       <img src="" alt="" />
       <div>
         <p>Title song</p>
