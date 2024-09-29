@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import { Song as SongType } from "@/types";
 import { fetchSongById } from "@/app/features/api";
+import { SongHeader } from "./SongHeader";
+import SongArtist from "./SongArtist";
+import { SongControl } from "./SongControl";
 
 export default function SongDetail({ params }: { params: { id: string } }) {
   const [song, setSong] = useState<SongType | null>(null);
@@ -55,21 +58,9 @@ export default function SongDetail({ params }: { params: { id: string } }) {
 
   return (
     <div>
-      {song && (
-        <div>
-          <h1>{song.title}</h1>
-          <p>Artist: {song.artist.name}</p>
-          <p>Album: {song.album.title}</p>
-          {audio && (
-            <div>
-              <audio controls>
-                <source src={audio} type="audio/mpeg" />
-                Your browser does not support the audio element.
-              </audio>
-            </div>
-          )}
-        </div>
-      )}
+      {song && <SongHeader song={song} />}
+      <SongControl audio={audio} />
+      {song?.artist && <SongArtist artist={song?.artist} />}
     </div>
   );
 }

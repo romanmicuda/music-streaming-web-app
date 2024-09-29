@@ -5,3 +5,4 @@ fronted/.gitignore
 data/
 .env
 docker-entrypoint-initdb.d/generate.py
+docker-entrypoint-initdb.d/photo/
