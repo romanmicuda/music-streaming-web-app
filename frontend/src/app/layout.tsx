@@ -37,10 +37,6 @@ export default function RootLayout({
               <div className="flex-1 overflow-auto">{children}</div>
             </main>
 
-            <aside className="bg-yellow-500 w-72 flex-shrink-0 z-10">
-              <PlayBar />
-            </aside>
-
             <footer className="absolute bottom-0 left-0 w-full bg-green-700 z-20">
               <PlayingView />
             </footer>
