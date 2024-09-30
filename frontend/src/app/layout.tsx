@@ -36,10 +36,14 @@ export default function RootLayout({
             </aside>
 
             <main className="flex flex-col flex-1">
-              <div className="flex-1 overflow-auto bg-mygray rounded-lg  m-3">
+              <div className="flex-1 overflow-auto  rounded-lg  m-3">
                 {children}
               </div>
             </main>
+
+            <aside className="bg-mygray rounded-lg w-72 flex-shrink-0 z-10">
+              <PlayBar />
+            </aside>
 
             <footer className="absolute bottom-0 bg-black left-0 w-full z-20">
               <PlayingView />

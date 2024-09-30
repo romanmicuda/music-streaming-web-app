@@ -1,26 +1,36 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 
-function PlaybackControls() {
+interface PlaybackControlsProps {
+  audio: string | null;
+}
+
+export const PlaybackControls: React.FC<PlaybackControlsProps> = ({
+  audio,
+}) => {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
   const handlePlay = () => {
-    // Implement play functionality
+    audioRef.current && audioRef.current.play();
   };
 
   const handlePause = () => {
-    // Implement pause functionality
+    audioRef.current && audioRef.current.pause();
   };
 
-  const handleNext = () => {
-    // Implement next track functionality
-  };
+  const handleNext = () => {};
 
-  const handlePrevious = () => {
-    // Implement previous track functionality
-  };
+  const handlePrevious = () => {};
 
   return (
     <div className="flex items-center space-x-2">
+      <div>
+        <audio ref={audioRef}>
+          {audio && <source src={audio} type="audio/mpeg" />}
+        </audio>
+      </div>
       <span className="material-symbols-outlined">shuffle</span>
 
       <button onClick={handlePrevious} className="control-button">
@@ -38,6 +48,6 @@ function PlaybackControls() {
       <span className="material-symbols-outlined">replay</span>
     </div>
   );
-}
+};
 
 export default PlaybackControls;

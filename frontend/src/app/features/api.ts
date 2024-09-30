@@ -21,7 +21,7 @@ export const fetchSongsByGenre = async (genre: string) => {
   }
 };
 
-export const fetchSongById = async (id: string) => {
+export const fetchSongById = async (id: number) => {
   if (!Number(id)) {
     console.error(`Invalid id provided: ${id}`);
     return null;

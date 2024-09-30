@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import playlistReducer from "./playlistSlice";
+import playControlReducer from "./playControlSlice";
 
 const store = configureStore({
   reducer: {
     playlist: playlistReducer,
+    playControl: playControlReducer,
   },
 });
 
