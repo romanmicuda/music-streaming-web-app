@@ -208,24 +208,9 @@ export const folders: Folder[] = [
 
 export const genres: string[] = [
   "Music",
-  "Made For You",
-  "New Releases",
-  "Pop",
-  "Hip-Hop",
-  "Latin",
-  "Rock",
-  "Podcast Charts",
-  "Educational",
-  "Documentary",
-  "Comedy",
-  "Charts",
-  "Dance/Electronic",
   "Mood",
   "Indie",
   "Workout",
-  "Discover",
-  "Country",
-  "R&B",
 ];
 
 export const genreMapping: { [key: string]: string } = {

@@ -15,24 +15,9 @@ export interface Album {
 
 export type Genre =
   | "Music"
-  | "Made For You"
-  | "New Releases"
-  | "Pop"
-  | "Hip-Hop"
-  | "Latin"
-  | "Rock"
-  | "Podcast Charts"
-  | "Educational"
-  | "Documentary"
-  | "Comedy"
-  | "Charts"
-  | "Dance/Electronic"
   | "Mood"
-  | "Indie"
   | "Workout"
-  | "Discover"
-  | "Country"
-  | "R&B";
+  | "Indie";
 
 export interface Song {
   id: number;

@@ -18,6 +18,7 @@ function PlayingView() {
   );
 
   useEffect(() => {
+    console.log(playingItem)
     const getSongAudio = async () => {
       setLoading(true);
       setError(null);
